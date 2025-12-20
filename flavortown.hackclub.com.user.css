@@ -1,0 +1,160 @@
+/* ==UserStyle==
+@name         Catppucchin flavortown.hackclub.com
+@description  Configureable catppucchin theme for flavortown!
+@namespace    elijah629
+@version      0.0.1
+@author       elijah629 (https://github.com/elijah629)
+@preprocessor stylus
+==/UserStyle== */
+
+@-moz-document domain("flavortown.hackclub.com") {
+  :root {
+    --rosewater: hsl(11deg, 59%, 67%);
+    --flamingo: hsl(0deg, 60%, 67%);
+    --pink: hsl(316deg, 73%, 69%);
+    --mauve: hsl(266deg, 85%, 58%);
+    --red: hsl(347deg, 87%, 44%);
+    --maroon: hsl(355deg, 76%, 59%);
+    --peach: hsl(22deg, 99%, 52%);
+    --yellow: hsl(35deg, 77%, 49%);
+    --green: hsl(109deg, 58%, 40%);
+    --teal: hsl(183deg, 74%, 35%);
+    --sky: hsl(197deg, 97%, 46%);
+    --sapphire: hsl(189deg, 70%, 42%);
+    --blue: hsl(220deg, 91%, 54%);
+    --lavender: hsl(231deg, 97%, 72%);
+    --text: hsl(234deg, 16%, 35%);
+    --subtext-1: hsl(233deg, 13%, 41%);
+    --subtext-0: hsl(233deg, 10%, 47%);
+    --overlay-2: hsl(232deg, 10%, 53%);
+    --overlay-1: hsl(231deg, 10%, 59%);
+    --overlay-0: hsl(228deg, 11%, 65%);
+    --surface-2: hsl(227deg, 12%, 71%);
+    --surface-1: hsl(225deg, 14%, 77%);
+    --surface-0: hsl(223deg, 16%, 83%);
+    --base: hsl(220deg, 23%, 95%);
+    --mantle: hsl(220deg, 22%, 92%);
+    --crust: hsl(220deg, 21%, 89%);
+
+    --primary: var(--blue);
+    --primary-foreground: var(--base);
+
+    --color-text-header: var(--text);
+    --color-text-body: var(--text);
+    --color-text-muted: var(--subtext-1);
+    --color-bg: var(--surface-0);
+    --color-bg-2: var(--base);
+
+    --color-red-300: unquote("color-mix(in srgb, var(--red) 75%, white)");
+    --color-red-400: unquote("color-mix(in srgb, var(--red) 85%, white)");
+    --color-red-450: unquote("color-mix(in srgb, var(--red) 92%, white)");
+    --color-red-500: var(--red);
+    --color-red-600: unquote("color-mix(in srgb, var(--red) 82%, black)");
+
+    --color-green-300: unquote("color-mix(in srgb, var(--green) 75%, white)");
+    --color-green-400: unquote("color-mix(in srgb, var(--green) 85%, white)");
+    --color-green-450: unquote("color-mix(in srgb, var(--green) 92%, white)");
+    --color-green-500: var(--green);
+    --color-green-600: unquote("color-mix(in srgb, var(--green) 82%, black)");
+
+    --color-blue-300: unquote("color-mix(in srgb, var(--blue) 75%, white)");
+    --color-blue-400: unquote("color-mix(in srgb, var(--blue) 88%, white)");
+    --color-blue-500: var(--blue);
+    --color-blue-600: unquote("color-mix(in srgb, var(--blue) 82%, black)");
+
+    --color-yellow-300: unquote("color-mix(in srgb, var(--yellow) 75%, white)");
+    --color-yellow-400: unquote("color-mix(in srgb, var(--yellow) 85%, white)");
+    --color-yellow-450: unquote("color-mix(in srgb, var(--yellow) 92%, white)");
+    --color-yellow-500: var(--yellow);
+    --color-yellow-600: unquote("color-mix(in srgb, var(--yellow) 82%, black)");
+
+    --color-brown-700: var(--base);
+    --color-brown-600: var(--text);
+    --color-brown-500: var(--text);
+    --color-brown-400: var(--text);
+
+    --color-tan-400: hsl(30, 46%, 71%);
+    --color-tan-300: hsl(39, 52%, 80%);
+    --color-lime-400: hsl(70, 40%, 68%);
+    --color-pink-400: var(--pink);
+    --color-teal-400: var(--teal);
+    --color-brown-hover: hsla(7, 30%, 37%, 0.3);
+    --color-brown-hover-focus: hsla(7, 30%, 37%, 0.4);
+    --shadow: none;
+    --shadow-inset: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --rosewater: hsl(10deg, 56%, 91%);
+      --flamingo: hsl(0deg, 59%, 88%);
+      --pink: hsl(316deg, 72%, 86%);
+      --mauve: hsl(267deg, 84%, 81%);
+      --red: hsl(343deg, 81%, 75%);
+      --maroon: hsl(350deg, 65%, 77%);
+      --peach: hsl(23deg, 92%, 75%);
+      --yellow: hsl(41deg, 86%, 83%);
+      --green: hsl(115deg, 54%, 76%);
+      --teal: hsl(170deg, 57%, 73%);
+      --sky: hsl(189deg, 71%, 73%);
+      --sapphire: hsl(199deg, 76%, 69%);
+      --blue: hsl(217deg, 92%, 76%);
+      --lavender: hsl(232deg, 97%, 85%);
+      --text: hsl(226deg, 64%, 88%);
+      --subtext-1: hsl(227deg, 35%, 80%);
+      --subtext-0: hsl(228deg, 24%, 72%);
+      --overlay-2: hsl(228deg, 17%, 64%);
+      --overlay-1: hsl(230deg, 13%, 55%);
+      --overlay-0: hsl(231deg, 11%, 47%);
+      --surface-2: hsl(233deg, 12%, 39%);
+      --surface-1: hsl(234deg, 13%, 31%);
+      --surface-0: hsl(237deg, 16%, 23%);
+      --base: hsl(240deg, 21%, 15%);
+      --mantle: hsl(240deg, 21%, 12%);
+      --crust: hsl(240deg, 23%, 9%);
+    }
+  }
+
+  /* Reset */
+  body {
+    /* background-color: var(--base) !important; */
+    background-image: none !important; /* Could add recoloring */
+  }
+
+  .dev-footer {
+    color: var(--text);
+    opacity: 1 !important;
+  }
+}
+
+@-moz-document url-prefix("https://flavortown.hackclub.com/kitchen")
+{
+  .kitchen-setup,
+  .kitchen-help {
+    background: none;
+  }
+
+  details.tutorial-steps:not([open]) > summary {
+    margin-bottom: 0px;
+  }
+}
+
+@-moz-document url-prefix("https://flavortown.hackclub.com/explore")
+{
+  .btn--brown {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+  }
+
+  .post__meta {
+    color: var(--base);
+  }
+
+  .comment-form__input {
+    color: var(--base);
+    background: unquote(
+      "color-mix(in srgb, var(--comment-box-col) 20%, white)"
+    );
+  }
+}
