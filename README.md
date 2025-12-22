@@ -1,1 +1,1 @@
-# flavortown-catppucchin
+# flavortown-catppuccin
