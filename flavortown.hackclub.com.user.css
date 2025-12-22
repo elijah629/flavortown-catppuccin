@@ -1,9 +1,9 @@
 /* ==UserStyle==
-@name         Catppucchin flavortown.hackclub.com
-@description  Configureable catppucchin theme for flavortown!
+@name         Catppuccin (darker ramps) for flavortown.hackclub.com
+@description  Catppuccin theme adapter for Flavortown using darker color ramps (300 = base, everything else mixed with black)
 @namespace    elijah629
-@version      0.0.1
-@author       elijah629 (https://github.com/elijah629)
+@version      0.2.0.
+@author       elijah629
 @preprocessor stylus
 ==/UserStyle== */
 
@@ -36,56 +36,7 @@
     --mantle: hsl(220deg, 22%, 92%);
     --crust: hsl(220deg, 21%, 89%);
 
-    --primary: var(--blue);
-    --primary-foreground: var(--base);
-
-    --color-text-header: var(--text);
-    --color-text-body: var(--text);
-    --color-text-muted: var(--subtext-1);
-    --color-bg: var(--surface-0);
-    --color-bg-2: var(--base);
-
-    --color-red-300: unquote("color-mix(in srgb, var(--red) 75%, white)");
-    --color-red-400: unquote("color-mix(in srgb, var(--red) 85%, white)");
-    --color-red-450: unquote("color-mix(in srgb, var(--red) 92%, white)");
-    --color-red-500: var(--red);
-    --color-red-600: unquote("color-mix(in srgb, var(--red) 82%, black)");
-
-    --color-green-300: unquote("color-mix(in srgb, var(--green) 75%, white)");
-    --color-green-400: unquote("color-mix(in srgb, var(--green) 85%, white)");
-    --color-green-450: unquote("color-mix(in srgb, var(--green) 92%, white)");
-    --color-green-500: var(--green);
-    --color-green-600: unquote("color-mix(in srgb, var(--green) 82%, black)");
-
-    --color-blue-300: unquote("color-mix(in srgb, var(--blue) 75%, white)");
-    --color-blue-400: unquote("color-mix(in srgb, var(--blue) 88%, white)");
-    --color-blue-500: var(--blue);
-    --color-blue-600: unquote("color-mix(in srgb, var(--blue) 82%, black)");
-
-    --color-yellow-300: unquote("color-mix(in srgb, var(--yellow) 75%, white)");
-    --color-yellow-400: unquote("color-mix(in srgb, var(--yellow) 85%, white)");
-    --color-yellow-450: unquote("color-mix(in srgb, var(--yellow) 92%, white)");
-    --color-yellow-500: var(--yellow);
-    --color-yellow-600: unquote("color-mix(in srgb, var(--yellow) 82%, black)");
-
-    --color-brown-700: var(--base);
-    --color-brown-600: var(--text);
-    --color-brown-500: var(--text);
-    --color-brown-400: var(--text);
-
-    --color-tan-400: hsl(30, 46%, 71%);
-    --color-tan-300: hsl(39, 52%, 80%);
-    --color-lime-400: hsl(70, 40%, 68%);
-    --color-pink-400: var(--pink);
-    --color-teal-400: var(--teal);
-    --color-brown-hover: hsla(7, 30%, 37%, 0.3);
-    --color-brown-hover-focus: hsla(7, 30%, 37%, 0.4);
-    --shadow: none;
-    --shadow-inset: none;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
+    @media (prefers-color-scheme: dark) {
       --rosewater: hsl(10deg, 56%, 91%);
       --flamingo: hsl(0deg, 59%, 88%);
       --pink: hsl(316deg, 72%, 86%);
@@ -113,16 +64,196 @@
       --mantle: hsl(240deg, 21%, 12%);
       --crust: hsl(240deg, 23%, 9%);
     }
+
+    --primary: var(--blue);
+    --primary-foreground: var(--base);
+
+    --color-text-header: var(--text);
+    --color-text-body: var(--text);
+    --color-text-muted: var(--subtext-1);
+    --color-bg: var(--base);
+    --color-bg-2: var(--surface-0);
+    --color-bg-3: var(--surface-1);
+    --color-bg-4: var(--surface-2);
+    --color-border: var(--overlay-0);
+    --color-border-strong: var(--overlay-2);
+
+    --input-bg: unquote(
+      "color-mix(in srgb, var(--surface-0) 88%, var(--crust))"
+    );
+    --input-bd: var(--overlay-0);
+    --input-bd-focus: var(--blue);
+
+    --color-red-300: var(--red);
+    --color-red-400: unquote("color-mix(in srgb, var(--red) 85%, black)");
+    --color-red-450: unquote("color-mix(in srgb, var(--red) 75%, black)");
+    --color-red-500: unquote("color-mix(in srgb, var(--red) 65%, black)");
+    --color-red-600: unquote("color-mix(in srgb, var(--red) 50%, black)");
+
+    --color-green-300: var(--green);
+    --color-green-400: unquote("color-mix(in srgb, var(--green) 85%, black)");
+    --color-green-450: unquote("color-mix(in srgb, var(--green) 75%, black)");
+    --color-green-500: unquote("color-mix(in srgb, var(--green) 65%, black)");
+    --color-green-600: unquote("color-mix(in srgb, var(--green) 50%, black)");
+
+    --color-blue-300: var(--blue);
+    --color-blue-400: unquote("color-mix(in srgb, var(--blue) 85%, black)");
+    --color-blue-500: unquote("color-mix(in srgb, var(--blue) 65%, black)");
+    --color-blue-600: unquote("color-mix(in srgb, var(--blue) 50%, black)");
+
+    --color-yellow-300: var(--yellow);
+    --color-yellow-400: unquote("color-mix(in srgb, var(--yellow) 85%, black)");
+    --color-yellow-450: unquote("color-mix(in srgb, var(--yellow) 75%, black)");
+    --color-yellow-500: unquote("color-mix(in srgb, var(--yellow) 65%, black)");
+    --color-yellow-600: unquote("color-mix(in srgb, var(--yellow) 50%, black)");
+
+    --color-pink-300: var(--pink);
+    --color-pink-400: unquote("color-mix(in srgb, var(--pink) 85%, black)");
+
+    --color-teal-300: var(--teal);
+    --color-teal-400: unquote("color-mix(in srgb, var(--teal) 85%, black)");
+
+    --color-brown-700: var(--crust);
+    --color-brown-600: var(--mantle);
+    --color-brown-500: var(--base);
+    --color-brown-400: var(--surface-0);
+
+    --color-tan-400: var(--surface-1);
+    --color-tan-300: var(--surface-2);
+
+    --color-lime-400: unquote("color-mix(in srgb, var(--green) 85%, black)");
+
+    --color-brown-hover: unquote(
+      "color-mix(in srgb, var(--overlay-0) 25%, transparent)"
+    );
+    --color-brown-hover-focus: unquote(
+      "color-mix(in srgb, var(--overlay-1) 30%, transparent)"
+    );
+
+    --shadow: none;
+    --shadow-inset: none;
+
+    accent-color: var(--primary);
+    color-scheme: light dark;
   }
 
-  /* Reset */
+  html,
   body {
-    /* background-color: var(--base) !important; */
-    background-image: none !important; /* Could add recoloring */
+    background: var(--color-bg) !important;
+    color: var(--color-text-body) !important;
+    background-image: none !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-text-header) !important;
+  }
+
+  p,
+  li,
+  label,
+  small,
+  span {
+    color: var(--color-text-body) !important;
+  }
+
+  .muted,
+  .text-muted,
+  [class*="muted"] {
+    color: var(--color-text-muted) !important;
+  }
+
+  a,
+  a:visited {
+    color: var(--primary) !important;
+  }
+  a:hover {
+    color: var(--lavender) !important;
+  }
+
+  article,
+  main,
+  footer,
+  .card,
+  [class*="panel"],
+  [class*="modal"],
+  [class*="sheet"] {
+    background-color: var(--color-bg-2) !important;
+    color: var(--color-text-body) !important;
+    border-color: var(--color-border) !important;
+  }
+
+  pre,
+  code,
+  kbd,
+  samp {
+    background: var(--mantle) !important;
+    color: var(--text) !important;
+    border-color: var(--color-border) !important;
+  }
+
+  input,
+  textarea,
+  select {
+    background: var(--input-bg) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--input-bd) !important;
+    box-shadow: none !important;
+  }
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none !important;
+    border-color: var(--input-bd-focus) !important;
+  }
+  ::placeholder {
+    color: var(--subtext-0) !important;
+    opacity: 1 !important;
+  }
+
+  button,
+  .btn,
+  [class*="btn"] {
+    border: none;
+    box-shadow: none !important;
+  }
+  button:hover,
+  .btn:hover,
+  [class*="btn"]:hover {
+    background-image: none !important;
+  }
+
+  .btn--brown,
+  .btn-brown,
+  [class*="btn--brown"] {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+    border: none !important;
+  }
+
+  .btn--tan,
+  .btn--secondary,
+  .btn-secondary,
+  [class*="btn--tan"],
+  [class*="btn--secondary"] {
+    background-color: var(--color-bg-3) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--color-border) !important;
+  }
+
+  hr,
+  .divider,
+  [class*="divider"] {
+    border-color: var(--color-border) !important;
+    opacity: 1 !important;
   }
 
   .dev-footer {
-    color: var(--text);
+    color: var(--text) !important;
     opacity: 1 !important;
   }
 }
@@ -131,30 +262,86 @@
 {
   .kitchen-setup,
   .kitchen-help {
-    background: none;
+    background: transparent !important;
+  }
+
+  .kitchen-setup::before,
+  .kitchen-help::before {
+    background: var(--surface-1) !important;
+  }
+
+  .state-card--success {
+    --state-card-accent: var(--color-green-300);
+  }
+
+  .state-card__icon-circle {
+    color: var(--base) !important;
   }
 
   details.tutorial-steps:not([open]) > summary {
-    margin-bottom: 0px;
+    margin-bottom: 0px !important;
   }
 }
 
 @-moz-document url-prefix("https://flavortown.hackclub.com/explore")
 {
-  .btn--brown {
+  .post::after {
+    border-color: transparent;
     background-color: var(--primary);
+  }
+
+  .post::before {
     color: var(--primary-foreground);
-    border: none;
   }
 
   .post__meta {
-    color: var(--base);
+    color: var(--subtext-1) !important;
+  }
+
+  .post__duration {
+    color: var(--color-text-body);
   }
 
   .comment-form__input {
-    color: var(--base);
+    --comment-box-col: var(--overlay-0) !important;
+    color: var(--text) !important;
     background: unquote(
-      "color-mix(in srgb, var(--comment-box-col) 20%, white)"
-    );
+      "color-mix(in srgb, var(--comment-box-col) 92%, black)"
+    ) !important;
+    border: 1px solid var(--overlay-0) !important;
+  }
+
+  .project-card__banner-frame--placeholder {
+    background: var(--surface-2) !important;
+    border-color: var(--overlay-0) !important;
+  }
+
+  .project-card__banner-placeholder-text {
+    color: var(--overlay-2) !important;
+  }
+}
+
+@-moz-document url-prefix("https://flavortown.hackclub.com/projects")
+{
+  .project-card__banner-frame--placeholder {
+    background: var(--surface-2) !important;
+    border-color: var(--overlay-0) !important;
+  }
+
+  .project-card__banner-placeholder-text {
+    color: var(--overlay-2) !important;
+  }
+
+  .projects-board__create-card::before {
+    background: none !important;
+  }
+
+  .projects-board__create-card {
+    border: 14px solid var(--surface-0);
+    background-color: var(--base) !important;
+  }
+
+  .projects-board__create-icon {
+    color: var(--text) !important;
   }
 }
