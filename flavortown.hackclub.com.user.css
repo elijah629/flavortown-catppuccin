@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name         Catppuccin (darker ramps) for flavortown.hackclub.com
-@description  Catppuccin theme adapter for Flavortown using darker color ramps (300 = base, everything else mixed with black)
+@name         Catppuccin for flavortown.hackclub.com
+@description  Catppuccin theme adapter for Flavortown
 @namespace    elijah629
-@version      0.2.0.
+@version      0.2.0
 @author       elijah629
 @preprocessor stylus
 ==/UserStyle== */
@@ -150,7 +150,7 @@
   h4,
   h5,
   h6 {
-    color: var(--color-text-header) !important;
+    color: var(--color-text-header);
   }
 
   p,
@@ -169,10 +169,10 @@
 
   a,
   a:visited {
-    color: var(--primary) !important;
+    color: var(--primary);
   }
   a:hover {
-    color: var(--lavender) !important;
+    color: var(--lavender);
   }
 
   article,
@@ -227,9 +227,9 @@
     background-image: none !important;
   }
 
-  .btn--brown,
-  .btn-brown,
-  [class*="btn--brown"] {
+  .btn--brown {
+    --btn-bg: var(--primary);
+    --btn-bg-dark: var(--primary);
     background-color: var(--primary) !important;
     color: var(--primary-foreground) !important;
     border: none !important;
@@ -250,6 +250,29 @@
   [class*="divider"] {
     border-color: var(--color-border) !important;
     opacity: 1 !important;
+  }
+
+  .ui-heading__surface {
+    background-color: var(--color-blue-500);
+  }
+  .ui-heading__backdrop {
+    background-color: var(--color-blue-400);
+  }
+
+  .dropdown__menu,
+  .dropdown__label,
+  .dropdown__button {
+    color: var(--text) !important;
+    background: var(--surface-1) !important;
+  }
+
+  .dropdown__button {
+    border: 2px solid var(--surface-2);
+  }
+
+  .dropdown__item:hover {
+    background-color: var(--primary) !important;
+    color: var(--color-bg);
   }
 
   .dev-footer {
@@ -298,7 +321,8 @@
     color: var(--subtext-1) !important;
   }
 
-  .post__duration {
+  .post__duration,
+  .post__author {
     color: var(--color-text-body);
   }
 
@@ -342,6 +366,55 @@
   }
 
   .projects-board__create-icon {
+    color: var(--text) !important;
+  }
+}
+
+@-moz-document url-prefix("https://flavortown.hackclub.com/shop")
+{
+  .shop-goals__container {
+    background: var(--surface-1);
+    border-color: var(--surface-2);
+  }
+
+  .shop-goals__item {
+    box-shadow: none;
+    background: var(--overlay-0);
+  }
+
+  .shop-goals__remove {
+    color: var(--color-red-600);
+    background: var(--color-red-300);
+  }
+
+  .shop-goals__image {
+    padding: 4px;
+    background: var(--primary);
+  }
+
+  .shop-item-card::before {
+    background: none !important;
+  }
+
+  .shop-item-card__image {
+    background: var(--primary);
+  }
+
+  .shop-order__content {
+    background: var(--color-bg-2);
+  }
+
+  .shop-order__summary-content {
+    color: var(--base) !important;
+  }
+
+  .shop-item-card {
+    background-color: var(--color-bg-2) !important;
+    color: var(--color-text-body) !important;
+    border-color: var(--color-border) !important;
+  }
+
+  .btn-order {
     color: var(--text) !important;
   }
 }
