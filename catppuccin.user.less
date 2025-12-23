@@ -570,6 +570,31 @@
     .user-profile__project-card:hover {
       background-color: @surface2;
     }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--ctp-mantle);
+  }
+
+  ::-webkit-scrollbar-thumb {
+     background: var(--ctp-surface2);
+     border-radius: 4px;
+   }
+
+   ::-webkit-scrollbar-thumb:hover {
+      background: var(--ctp-overlay0);
+    }
+
+    .balance-history__table {
+      &> thead > tr > th,
+      &> tbody > tr > td:first-child > a {
+        color: @text !important;
+      }
+    }
   }
 }
 
