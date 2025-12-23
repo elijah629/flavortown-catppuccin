@@ -2,7 +2,7 @@
 @name Flavortown Catppuccin
 @namespace elijah629
 @homepageURL https://github.com/elijah629/flavortown-catppuccin
-@version 2025.12.22
+@version 2025.12.22-1
 @updateURL https://github.com/elijah629/flavortown-catppuccin/raw/main/catppuccin.user.less
 @description Soothing pastel theme for hackclub/flavortown
 @author elijah629
@@ -48,7 +48,7 @@
 
     --input-bg: mix(@surface0, @crust, 88%);
     --input-bd: @overlay0;
-    --input-bd-focus: @blue;
+    --input-bd-focus: @accent;
 
     @shades: {
       300: 100%;
@@ -79,7 +79,7 @@
     --color-tan-400: @surface1;
     --color-tan-300: @surface2;
 
-    --color-lime-400: mix(@green, black, 85%);
+    --color-lime-400: var(--color--green-400);
 
     --color-brown-hover: mix(@overlay0, transparent, 25%);
     --color-brown-hover-focus: mix(@overlay1, transparent, 30%);
@@ -155,7 +155,7 @@
     textarea:focus,
     select:focus {
       outline: none !important;
-      border-color: @blue !important;
+      border-color: @accent !important;
     }
 
     ::placeholder {
@@ -226,6 +226,18 @@
       color: @text !important;
       opacity: 1 !important;
     }
+
+    .sidebar__blob {
+      background-color: mix(@accent, black, 90%);
+    }
+
+    .sidebar__nav-icon {
+      color: var(--primary-foreground) !important;
+    }
+
+    .sidebar__nav-link--active .sidebar__nav-icon-wrapper, .sidebar__nav-link--active::before {
+      background-color: mix(@accent, black, 80%);
+    }
   }
 }
 
@@ -265,7 +277,7 @@
   }
 }
 
-@-moz-document url-prefix("https://flavortown.hackclub.com/explore")
+@-moz-document url-prefix("https://flavortown.hackclub.com/explore"), url-prefix("https://flavortown.hackclub.com/projects")
 {
   .post::after {
     border-color: transparent;
@@ -276,27 +288,12 @@
     color: var(--primary-foreground);
   }
 
-  .post__meta {
-    color: var(--ctp-subtext1) !important;
-  }
-
+  .post__meta,
   .post__duration,
   .post__author {
-    color: var(--color-text);
+    color: var(--color-text) !important;
   }
 
-  .project-card__banner-frame--placeholder {
-    background: var(--ctp-surface2) !important;
-    border-color: var(--ctp-overlay0) !important;
-  }
-
-  .project-card__banner-placeholder-text {
-    color: var(--ctp-overlay2) !important;
-  }
-}
-
-@-moz-document url-prefix("https://flavortown.hackclub.com/projects")
-{
   .project-card__banner-frame--placeholder {
     background: var(--ctp-surface2) !important;
     border-color: var(--ctp-overlay0) !important;
@@ -317,6 +314,13 @@
 
   .projects-board__create-icon {
     color: var(--color-text) !important;
+  }
+
+  .projects-show__timeline::before {
+    background-color: var(--primary);
+    background-image: none;
+    width: 8px;
+  	mask: url("data:image/svg+xml,%3csvg width='8' height='90' viewBox='0 0 4 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='0' y='0' width='4' height='30' rx='2' fill='white' /%3e%3c/svg%3e");
   }
 }
 
