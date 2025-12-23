@@ -1,0 +1,370 @@
+/* ==UserStyle==
+@name Flavortown Catppuccin
+@namespace elijah629
+@homepageURL https://github.com/elijah629/flavortown-catppuccin
+@version 2025.12.22
+@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/seventv/catppuccin.user.less
+@description Soothing pastel theme for hackclub/flavortown
+@author elijah629
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@import "https://userstyles.catppuccin.com/lib/lib.less";
+
+@-moz-document domain("flavortown.hackclub.com") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    --primary: @accent;
+    --primary-foreground: @base;
+
+    --color-text: @text;
+    --color-text-muted: @subtext1;
+
+    --color-mantle: @mantle;
+    --color-bg: @base;
+    --color-bg-2: @surface0;
+    --color-bg-3: @surface1;
+    --color-bg-4: @surface2;
+
+    --color-border: @overlay0;
+    --color-border-strong: @overlay2;
+
+    --input-bg: mix(@surface0, @crust, 88%);
+    --input-bd: @overlay0;
+    --input-bd-focus: @blue;
+
+    @shades: {
+      300: 100%;
+      400: 85%;
+      450: 75%;
+      500: 65%;
+      600: 50%;
+    };
+
+    .generate-color(@name, @color) {
+      each(@shades, {
+        --color-@{name}-@{key}: mix(@color, black, @value);
+      });
+    }
+
+    .generate-color(red, @red);
+    .generate-color(green, @green);
+    .generate-color(blue, @blue);
+    .generate-color(yellow, @yellow);
+    .generate-color(pink, @pink);
+    .generate-color(teal, @teal);
+
+    --color-brown-700: @crust;
+    --color-brown-600: @mantle;
+    --color-brown-500: @base;
+    --color-brown-400: @surface0;
+
+    --color-tan-400: @surface1;
+    --color-tan-300: @surface2;
+
+    --color-lime-400: mix(@green, black, 85%);
+
+    --color-brown-hover: mix(@overlay0, transparent, 25%);
+    --color-brown-hover-focus: mix(@overlay1, transparent, 30%);
+
+    --shadow: none;
+    --shadow-inset: none;
+
+    accent-color: @accent;
+    color-scheme: light dark;
+
+    html,
+    body {
+      background: var(--color-bg) !important;
+      color: var(--color-text) !important;
+      background-image: none !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--color-text);
+    }
+
+    p,
+    li,
+    label,
+    small,
+    span {
+      color: var(--color-text) !important;
+    }
+
+    .muted,
+    .text-muted,
+    [class*="muted"] {
+      color: var(--color-text-muted) !important;
+    }
+
+    a,
+    a:visited,
+    a:hover {
+      color: var(--primary);
+    }
+
+    article,
+    main,
+    footer,
+    .card,
+    [class*="panel"],
+    [class*="modal"],
+    [class*="sheet"] {
+      background-color: var(--color-bg-2) !important;
+      color: var(--color-text) !important;
+      border-color: var(--color-border) !important;
+    }
+
+    pre,
+    code,
+    kbd,
+    samp {
+      background: var(--color-mantle) !important;
+      color: var(--color-text) !important;
+      border-color: var(--color-border) !important;
+    }
+
+    input,
+    textarea,
+    select {
+      background: var(--input-bg) !important;
+      color: var(--color-text) !important;
+      border: 1px solid var(--color-border) !important;
+      box-shadow: none !important;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none !important;
+      border-color: @blue !important;
+    }
+
+    ::placeholder {
+      color: @subtext0 !important;
+      opacity: 1 !important;
+    }
+
+    button,
+    .btn,
+    [class*="btn"] {
+      border: none;
+      box-shadow: none !important;
+    }
+
+    .btn--brown {
+      background-color: @accent !important;
+      color: @base !important;
+    }
+
+    .btn--tan,
+    .btn--secondary,
+    .btn-secondary,
+    [class*="btn--tan"],
+    [class*="btn--secondary"] {
+      background-color: @surface1 !important;
+      color: @text !important;
+      border: 1px solid @overlay0 !important;
+    }
+
+    .btn-primary {
+      background-color: @accent !important;
+      color: @base !important;
+      border: 1px solid @overlay0 !important;
+    }
+
+    hr,
+    .divider,
+    [class*="divider"] {
+      border-color: @overlay0 !important;
+      opacity: 1 !important;
+    }
+
+    .ui-heading__surface {
+      background-color: mix(@accent, black, 80%);
+    }
+
+    .ui-heading__backdrop {
+      background-color: mix(@accent, black, 90%);
+    }
+
+    .dropdown__menu,
+    .dropdown__label,
+    .dropdown__button {
+      color: @text !important;
+      background: @surface1 !important;
+    }
+
+    .dropdown__button {
+      border: 2px solid @surface2;
+    }
+
+    .dropdown__item:hover {
+      background-color: @accent !important;
+      color: @base !important;
+    }
+
+    .dev-footer {
+      color: @text !important;
+      opacity: 1 !important;
+    }
+  }
+}
+
+@-moz-document url-prefix("https://flavortown.hackclub.com/kitchen")
+{
+  .kitchen-setup,
+  .kitchen-help {
+    background: transparent !important;
+  }
+
+  .kitchen-setup::before,
+  .kitchen-help::before {
+    background: var(--ctp-surface1) !important;
+  }
+
+.kitchen-help {
+  .state-card {
+      background-color: var(--color-bg-2) !important;
+      border-color: var(--color-border) !important;
+    }
+
+    .state-card__title, .state-card__description, .state-card__cta {
+      color: var(--color-text) !important;
+    }
+  }
+
+  .state-card--success {
+    --state-card-accent: var(--color-green-300);
+  }
+
+  .state-card__icon-circle {
+    color: var(--color-bg) !important;
+  }
+
+  details.tutorial-steps:not([open]) > summary {
+    margin-bottom: 0px !important;
+  }
+}
+
+@-moz-document url-prefix("https://flavortown.hackclub.com/explore")
+{
+  .post::after {
+    border-color: transparent;
+    background-color: var(--primary);
+  }
+
+  .post::before {
+    color: var(--primary-foreground);
+  }
+
+  .post__meta {
+    color: var(--ctp-subtext1) !important;
+  }
+
+  .post__duration,
+  .post__author {
+    color: var(--color-text);
+  }
+
+  .project-card__banner-frame--placeholder {
+    background: var(--ctp-surface2) !important;
+    border-color: var(--ctp-overlay0) !important;
+  }
+
+  .project-card__banner-placeholder-text {
+    color: var(--ctp-overlay2) !important;
+  }
+}
+
+@-moz-document url-prefix("https://flavortown.hackclub.com/projects")
+{
+  .project-card__banner-frame--placeholder {
+    background: var(--ctp-surface2) !important;
+    border-color: var(--ctp-overlay0) !important;
+  }
+
+  .project-card__banner-placeholder-text {
+    color: var(--ctp-overlay2) !important;
+  }
+
+  .projects-board__create-card::before {
+    background: none !important;
+  }
+
+  .projects-board__create-card {
+    border: 14px solid var(--ctp-surface0);
+    background-color: var(--color-bg) !important;
+  }
+
+  .projects-board__create-icon {
+    color: var(--color-text) !important;
+  }
+}
+
+@-moz-document url-prefix("https://flavortown.hackclub.com/shop")
+{
+  .shop-goals__container {
+    background: var(--ctp-surface1);
+    border-color: var(--ctp-surface2);
+  }
+
+  .shop-goals__item {
+    box-shadow: none;
+    background: var(--ctp-overlay0);
+  }
+
+  .shop-goals__remove {
+    color: var(--color-red-600);
+    background: var(--color-red-300);
+  }
+
+  .shop-goals__image {
+    padding: 4px;
+    background: var(--primary);
+  }
+
+  .shop-item-card::before {
+    background: none !important;
+  }
+
+  .shop-item-card__image {
+    background: var(--primary);
+  }
+
+  .shop-order__content {
+    background: var(--color-bg-2);
+  }
+
+  .shop-order__summary-content {
+    color: var(--color-bg) !important;
+  }
+
+  .shop-item-card {
+    background-color: var(--color-bg-2) !important;
+    color: var(--color-text) !important;
+    border-color: var(--color-border) !important;
+  }
+
+  .btn-order {
+    color: var(--color-text) !important;
+  }
+}
