@@ -2,7 +2,7 @@
 @name Flavortown Catppuccin
 @namespace elijah629
 @homepageURL https://github.com/elijah629/flavortown-catppuccin
-@version 2025.12.22-2
+@version 2025.12.22-3
 @updateURL https://github.com/elijah629/flavortown-catppuccin/raw/main/catppuccin.user.less
 @description Soothing pastel theme for hackclub/flavortown
 @author elijah629
@@ -129,7 +129,6 @@
     }
 
     article,
-    main,
     footer,
     .card,
     [class*="panel"],
@@ -443,5 +442,72 @@
     .btn-order {
       color: var(--color-text) !important;
     }
+
+    .achievements__stats {
+      background: @surface1;
+    }
+
+    .achievements__stats-text {
+      color: @text;
+    }
+
+    .achievements__stats-bar,
+    .achievements__progress-bar{
+      border: none;
+    }
+
+    .achievements__card::before {
+      background: none;
+    }
+
+    .achievements__icon {
+      background: @accent;
+    }
+
+    .achievements__icon-svg {
+      font-size: 45px;
+      font-weight: 800;
+      color: @base !important;
+    }
+
+    .achievements__earned-at {
+      background: @green;
+      color: @base !important;
+    }
+
+    .achievements__progress-fill {
+      background: var(--color-yellow-300);
+    }
+
+    .achievements__reward {
+      background: var(--color-yellow-300);
+      color: @base !important;
+    }
+
+    .achievements__card {
+      background: @surface1;
+    }
+  }
+}
+
+@-moz-document url-prefix("https://flavortown.hackclub.com/leaderboard") {
+  main {
+    margin: 0px !important;
+  }
+
+  .users {
+    width: 100%;
+  }
+
+  .user {
+    background-color: var(--ctp-surface2);
+  }
+
+  .user > .content {
+    background-color: var(--ctp-surface1);
+  }
+
+  .user > .content > h2 > a {
+    color: var(--primary);
   }
 }
