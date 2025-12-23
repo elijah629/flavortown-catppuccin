@@ -2,7 +2,7 @@
 @name Flavortown Catppuccin
 @namespace elijah629
 @homepageURL https://github.com/elijah629/flavortown-catppuccin
-@version 2025.12.23-2
+@version 2025.12.23-3
 @updateURL https://github.com/elijah629/flavortown-catppuccin/raw/main/catppuccin.user.less
 @description Soothing pastel theme for hackclub/flavortown
 @author elijah629
@@ -94,8 +94,8 @@
 
     html,
     body {
-      background: var(--color-bg) !important;
-      color: var(--color-text) !important;
+      background: @base !important;
+      color: @text !important;
       background-image: none !important;
     }
 
@@ -105,27 +105,33 @@
     h4,
     h5,
     h6 {
-      color: var(--color-text);
+      color: @text;
     }
 
-    p,
-    li,
-    label,
-    small,
-    span {
-      color: var(--color-text) !important;
-    }
+    each(p li label small span, {
+      .input-group @{value},
+      .input       @{value},
+      .projects-new__field @{value} {
+        color: @base !important;
+      }
 
-    .muted,
+      @{value} {
+        color: @text;
+      }
+    });
+
+    p .muted,
     .text-muted,
     [class*="muted"] {
       color: var(--color-text-muted) !important;
     }
 
-    a,
-    a:visited,
-    a:hover {
-      color: var(--primary);
+    a:not(.btn) {
+      &,
+      &:visited,
+      &:hover {
+        color: var(--primary);
+      }
     }
 
     article,
@@ -148,19 +154,8 @@
       border-color: var(--color-border) !important;
     }
 
-    .input {
-      --input-bg: mix(@surface0, @crust, 88%);
-      --input-focus-ring: @accent;
-      --input-subtitle-color: @base;
-    }
-
-    input,
-    textarea,
-    select {
-      background: var(--input-bg) !important;
-      color: var(--color-text) !important;
-      border: 1px solid var(--color-border) !important;
-      box-shadow: none !important;
+    .hackatime-project-selector__project-meta {
+      color: @base;
     }
 
     input:focus,
@@ -216,6 +211,14 @@
 
     .ui-heading__backdrop {
       background-color: mix(@accent, black, 90%);
+    }
+
+    .ui-heading__title {
+      color: @base !important;
+    }
+
+    .input__subtitle {
+      padding-top: 1.4rem;
     }
 
     .dropdown__menu,
@@ -378,16 +381,19 @@
       color: var(--color-text) !important;
     }
 
-    .post__attachment {
-      gap: 0;
-    }
+    .post {
+      .post__chevron {
+        background: @accent;
+      }
 
-    .post__viewport {
-      aspect-ratio: 16/9;
-    }
+      .post__viewport {
+        aspect-ratio: 16/9;
+      }
 
-    .post--devlog .post__chevron {
-      background: @accent;
+      .post__attachment {
+        gap: 0;
+        background: transparent;
+      }
     }
 
     .projects-show__timeline::before {
@@ -395,6 +401,30 @@
       background-image: none;
       width: 8px;
       mask: url("data:image/svg+xml,%3csvg width='8' height='90' viewBox='0 0 4 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='0' y='0' width='4' height='30' rx='2' fill='white' /%3e%3c/svg%3e");
+    }
+
+    .comment-form__input {
+      border: 2px solid var(--color-border);
+      --comment-box-col: @surface1;
+      color: @text;
+    }
+
+    .comments-section__list {
+      --comments-bg-col: transparent;
+    }
+
+    .shop .shop__nav .shop__searchbar {
+      .input__icon {
+        background-color: var(--input-bg);
+
+        & > svg > g > path {
+          fill: @text !important;
+        }
+      }
+
+      .input__field {
+        border: none !important;
+      }
     }
 
     .shop-goals__container {
@@ -410,10 +440,6 @@
     .shop-goals__remove {
       color: var(--color-red-600);
       background: @red;
-    }
-
-    .shop .shop__nav .shop__searchbar .input__icon {
-      background-color: var(--input-icon-bg);
     }
 
     .shop-goals__image {
@@ -460,7 +486,7 @@
     }
 
     .achievements__stats-bar,
-    .achievements__progress-bar{
+    .achievements__progress-bar {
       border: none;
     }
 
@@ -499,9 +525,12 @@
     /* Show secret achievements */
 
     .secret-achievement(@index, @name, @description, @cookieValue: -1) {
-      .achievements__card:nth-last-child(@{index}):not(.achievements__card--earned) {
-        .achievements__name, .achievements__description {
-          opacity: 1.0;
+      .achievements__card:nth-last-child(@{index}):not(
+          .achievements__card--earned
+        ) {
+        .achievements__name,
+        .achievements__description {
+          opacity: 1;
           font-style: normal;
           visibility: hidden;
           width: 100%;
@@ -526,7 +555,7 @@
 
           &::before {
             content: "+@{cookieValue} 🍪";
-          font-size: 0.9rem;
+            font-size: 0.9rem;
             color: @base !important;
           }
         }
@@ -536,7 +565,7 @@
         }
 
         .achievements__description::before {
-          content: "REVEALED BY FLAVORTOWN CATPPUCCIN! @{description}";
+          content: "revealed by flavortown catppuccin! @{description}";
         }
       }
     }
@@ -544,6 +573,10 @@
     .secret-achievement(4, "Cookbook Author", "10 recipes documented - publish that cookbook!", 15);
     .secret-achievement(3, "Scrapbook usage?!", "Used scrapbook in a devlog");
     .secret-achievement(2, "Cooking", "Cooked so hard you ended up making a fire project that made our staff very happy!", 5);
+
+    .achievement-toast {
+      background: @surface2;
+    }
 
     .user-profile__heading {
       color: @text !important;
@@ -572,39 +605,139 @@
     }
 
     * {
-    &::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
 
-    &::-webkit-scrollbar-track {
-      background: @mantle;
-    }
+      &::-webkit-scrollbar-track {
+        background: @mantle;
+      }
 
-    &::-webkit-scrollbar-thumb {
-       background: @surface2;
-       border-radius: 4px;
-     }
+      &::-webkit-scrollbar-thumb {
+        background: @surface2;
+        border-radius: 4px;
+      }
 
-    &::-webkit-scrollbar-thumb:hover {
-       background: @overlay0;
-    }
+      &::-webkit-scrollbar-thumb:hover {
+        background: @overlay0;
+      }
 
-      @supports(-moz-appearance: none) {
+      @supports (-moz-appearance: none) {
         scrollbar-color: @surface2 transparent !important;
       }
     }
 
     .balance-history__table {
-      &> thead > tr > th,
-      &> tbody > tr > td:first-child > a {
+      & > thead > tr > th,
+      & > tbody > tr > td:first-child > a {
         color: @text !important;
+      }
+    }
+
+    .votes-new__project {
+      background-color: @surface0;
+    }
+
+    .votes-new__project-card {
+      background-color: @surface1;
+    }
+
+    .votes-new__project-buttons .report-btn {
+      opacity: 1;
+    }
+
+    .votes-new__project-card-stat > svg {
+      color: @text;
+    }
+
+    .votes-new__form {
+      border: 4px solid var(--color-border);
+      background: @surface1;
+    }
+
+    .vote-category__body {
+      background-color: var(--vote-category-accent);
+    }
+
+    .vote-category__input:checked ~ .vote-category__star {
+      color: @yellow;
+    }
+
+    .vote-category__star {
+      color: @surface2;
+    }
+
+    .votes-new__feedback {
+      margin-top: 3.5rem !important;
+    }
+
+    .votes-new__form .btn-submit {
+      color: @base;
+      background-color: @green;
+
+      border-radius: 16px;
+
+      &::before {
+        border: none;
+      }
+    }
+
+    .my-votes {
+      a {
+        background-color: @accent;
+        color: @base !important;
+      }
+
+      table {
+        border: 2px solid var(--color-border);
+
+        tbody {
+          &:nth-of-type(odd) {
+            background-color: @surface0;
+          }
+
+          &:nth-of-type(even) {
+            background-color: @surface1;
+          }
+        }
+
+        th,
+        td {
+          border: 1px solid var(--color-border);
+          color: @text;
+        }
+
+        th {
+          background-color: @surface1;
+        }
+
+        .pagination {
+          a,
+          span {
+            background: @accent;
+            color: @base;
+          }
+
+          a:hover,
+          span.current,
+          span:hover {
+            background: @base;
+            color: @accent;
+          }
+
+          span.gap {
+            background: transparent;
+            color: @text;
+          }
+        }
       }
     }
   }
 }
 
-@-moz-document url-prefix("https://flavortown.hackclub.com/leaderboard") {
+@-moz-document url-prefix("https://flavortown.hackclub.com/leaderboard")
+{
   main {
     margin: 0px !important;
   }
