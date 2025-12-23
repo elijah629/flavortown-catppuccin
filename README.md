@@ -4,6 +4,10 @@
 	<img src="/assets/banner.webp"/>
 </p>
 
+<p align="center">
+	<img src="/assets/preview.png"/>
+</p>
+
 ## Usage
 
 To install, you will need the Stylus browser extension installed. Install
@@ -14,15 +18,7 @@ use Chrome, make sure to enable "Allow access to file URLs" in the Chrome
 extension settings for Stylus (visit
 `chrome://extensions/?id=clngdbkpkpeebahjckkjfobafhncgmne`).
 
-1. Download the compiled Stylus export file, containing our recommended Stylus
-   settings and all userstyles preloaded:
-   [`import.json` (download)](https://github.com/catppuccin/userstyles/releases/download/all-userstyles-export/import.json).
-   - Alternatively, if you want to further customize the `import.json` file -
-     such as setting it so that all userstyles have the accent color `peach`, or
-     the dark flavor is always `frappe` - you can download a customized Stylus
-     export file from [@uncenter](https://github.com/uncenter)'s
-     "[Catppuccin Userstyles Customizer](https://catppuccin-userstyles-customizer.uncenter.dev/)"
-     instead.
-2. Open the Stylus "manage" page.
-3. On the sidebar panel, click the **Import** button in the **Backup** section,
-   and select the downloaded file from step 1.
+With the Stylus browser extension installed, visit the
+[installation page](https://github.com/elijah629/flavortown-catppuccin/raw/main/catppuccin.user.less)
+or click install from the
+[userstyles.world page](https://userstyles.world/style/25744/flavortown-hackclub-com-catppuccin)
