@@ -1,8 +1,9 @@
+
 /* ==UserStyle==
 @name Flavortown Catppuccin
 @namespace elijah629
 @homepageURL https://github.com/elijah629/flavortown-catppuccin
-@version 2025.12.22-1
+@version 2025.12.22-2
 @updateURL https://github.com/elijah629/flavortown-catppuccin/raw/main/catppuccin.user.less
 @description Soothing pastel theme for hackclub/flavortown
 @author elijah629
@@ -48,22 +49,26 @@
     --color-border: @overlay0;
     --color-border-strong: @overlay2;
 
-    @shades: {
+    .generate-color(@name, @color, @shades: {
       300: 100%;
       400: 85%;
       450: 75%;
       500: 65%;
       600: 50%;
-    };
-
-    .generate-color(@name, @color) {
+    }) {
       each(@shades, {
         --color-@{name}-@{key}: mix(@color, black, @value);
       });
     }
 
     .generate-color(red, @red);
-    .generate-color(green, @green);
+    .generate-color(green, @green, {
+      300: 90%;
+      400: 85%;
+      450: 75%;
+      500: 65%;
+      600: 50%;
+    });
     .generate-color(blue, @blue);
     .generate-color(yellow, @yellow);
     .generate-color(pink, @pink);
@@ -95,7 +100,12 @@
       background-image: none !important;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: var(--color-text);
     }
 
@@ -142,8 +152,8 @@
 
     .input {
       --input-bg: mix(@surface0, @crust, 88%);
-    	--input-focus-ring: @accent;
-	    --input-subtitle-color: @base;
+      --input-focus-ring: @accent;
+      --input-subtitle-color: @base;
     }
 
     input,
@@ -235,11 +245,13 @@
       background-color: mix(@accent, black, 90%);
     }
 
-    .sidebar__nav-icon, .sidebar__nav-label {
+    .sidebar__nav-icon,
+    .sidebar__nav-label {
       color: var(--primary-foreground) !important;
     }
 
-    .sidebar__nav-link--active .sidebar__nav-icon-wrapper, .sidebar__nav-link--active::before {
+    .sidebar__nav-link--active .sidebar__nav-icon-wrapper,
+    .sidebar__nav-link--active::before {
       background-color: mix(@accent, black, 80%);
     }
 
@@ -265,156 +277,172 @@
       background: @surface2;
     }
 
-    .sidebar__user-avatar-hat, .sidebar__user-avatar-hat-bg {
+    .sidebar__user-avatar-hat,
+    .sidebar__user-avatar-hat-bg {
       display: none;
     }
-  }
-}
 
-@-moz-document url-prefix("https://flavortown.hackclub.com/kitchen")
-{
-  .kitchen-setup,
-  .kitchen-help {
-    background: transparent !important;
-  }
+    .kitchen-setup,
+    .kitchen-help {
+      background: transparent !important;
+    }
 
-  .kitchen-setup::before,
-  .kitchen-help::before {
-    background: var(--ctp-surface1) !important;
-  }
+    .kitchen-setup::before,
+    .kitchen-help::before {
+      background: @surface1 !important;
+    }
 
-.kitchen-help {
-  .state-card {
+    .kitchen-help {
+      .state-card {
+        background-color: var(--color-bg-2) !important;
+        border-color: var(--color-border) !important;
+      }
+
+      .state-card__title,
+      .state-card__description,
+      .state-card__cta {
+        color: var(--color-text) !important;
+      }
+    }
+
+    .state-card--success {
+      --state-card-accent: var(--color-green-300);
+    }
+
+    .state-card__icon-circle {
+      color: var(--color-bg) !important;
+    }
+
+    details.tutorial-steps:not([open]) > summary {
+      margin-bottom: 0px !important;
+    }
+
+    .post::after {
+      border-color: transparent;
+      background-color: @accent;
+    }
+
+    .post::before {
+      color: @base;
+    }
+
+    .post__meta,
+    .post__duration,
+    .post__author {
+      color: var(--color-text) !important;
+    }
+
+    .project-card__banner-frame--placeholder {
+      background: @surface2 !important;
+      border-color: @overlay0 !important;
+    }
+
+    .project-card__banner-placeholder-text {
+      color: @overlay2 !important;
+    }
+
+    .report-btn {
+      background-color: @red;
+    }
+
+    .project-card__banner-frame {
+      background: none;
+    }
+
+    .project-show-card__byline,
+    .project-show-card__stat path {
+      color: var(--color-text-muted);
+    }
+
+    .project-card .project-card__stats > h5,
+    .project-card__stats-icon > path {
+      color: var(--color-text) !important;
+    }
+
+    .projects-board__create-card::before {
+      background: none !important;
+    }
+
+    .projects-board__create-card {
+      border: 14px solid @surface0;
+      background-color: var(--color-bg) !important;
+    }
+
+    .projects-board__create-icon {
+      color: var(--color-text) !important;
+    }
+
+    .post__attachment {
+      gap: 0;
+    }
+
+    .post__viewport {
+      aspect-ratio: initial;
+    }
+
+    .post--devlog .post__chevron {
+      background: @accent;
+    }
+
+    .projects-show__timeline::before {
+      background-color: @accent;
+      background-image: none;
+      width: 8px;
+      mask: url("data:image/svg+xml,%3csvg width='8' height='90' viewBox='0 0 4 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='0' y='0' width='4' height='30' rx='2' fill='white' /%3e%3c/svg%3e");
+    }
+
+    .shop-goals__container {
+      background: @surface1;
+      border-color: @surface2;
+    }
+
+    .shop-goals__item {
+      box-shadow: none;
+      background: @overlay0;
+    }
+
+    .shop-goals__remove {
+      color: var(--color-red-600);
+      background: @red;
+    }
+
+    .shop .shop__nav .shop__searchbar .input__icon {
+      background-color: var(--input-icon-bg);
+    }
+
+    .shop-goals__image {
+      padding: 4px;
+      background: @accent;
+    }
+
+    .shop-item-card::before {
+      background: none !important;
+    }
+
+    .shop-item-card__image {
+      background: @accent;
+    }
+
+    .shop-order__content {
+      background: var(--color-bg-2);
+    }
+
+    .shop-order__summary-content {
+      color: var(--color-bg) !important;
+    }
+
+    .shop-item-card {
       background-color: var(--color-bg-2) !important;
+      color: var(--color-text) !important;
       border-color: var(--color-border) !important;
     }
 
-    .state-card__title, .state-card__description, .state-card__cta {
+    .shop-item-card__stock-badge {
+      background: @red;
+    }
+
+    .btn-order {
       color: var(--color-text) !important;
     }
-  }
-
-  .state-card--success {
-    --state-card-accent: var(--color-green-300);
-  }
-
-  .state-card__icon-circle {
-    color: var(--color-bg) !important;
-  }
-
-  details.tutorial-steps:not([open]) > summary {
-    margin-bottom: 0px !important;
-  }
-}
-
-@-moz-document url-prefix("https://flavortown.hackclub.com/explore"), url-prefix("https://flavortown.hackclub.com/projects")
-{
-  .post::after {
-    border-color: transparent;
-    background-color: var(--primary);
-  }
-
-  .post::before {
-    color: var(--primary-foreground);
-  }
-
-  .post__meta,
-  .post__duration,
-  .post__author {
-    color: var(--color-text) !important;
-  }
-
-  .project-card__banner-frame--placeholder {
-    background: var(--ctp-surface2) !important;
-    border-color: var(--ctp-overlay0) !important;
-  }
-
-  .project-card__banner-placeholder-text {
-    color: var(--ctp-overlay2) !important;
-  }
-
-  .project-card__banner-frame {
-    background: none;
-  }
-
-  .project-card .project-card__stats > h5, .project-card__stats-icon > path {
-    color: var(--color-text) !important;
-  }
-
-  .projects-board__create-card::before {
-    background: none !important;
-  }
-
-  .projects-board__create-card {
-    border: 14px solid var(--ctp-surface0);
-    background-color: var(--color-bg) !important;
-  }
-
-  .projects-board__create-icon {
-    color: var(--color-text) !important;
-  }
-
-  .projects-show__timeline::before {
-    background-color: var(--primary);
-    background-image: none;
-    width: 8px;
-  	mask: url("data:image/svg+xml,%3csvg width='8' height='90' viewBox='0 0 4 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='0' y='0' width='4' height='30' rx='2' fill='white' /%3e%3c/svg%3e");
-  }
-}
-
-@-moz-document url-prefix("https://flavortown.hackclub.com/shop")
-{
-  .shop-goals__container {
-    background: var(--ctp-surface1);
-    border-color: var(--ctp-surface2);
-  }
-
-  .shop-goals__item {
-    box-shadow: none;
-    background: var(--ctp-overlay0);
-  }
-
-  .shop-goals__remove {
-    color: var(--color-red-600);
-    background: var(--color-red-300);
-  }
-
-  .shop .shop__nav .shop__searchbar .input__icon {
-    background-color: var(--input-icon-bg) ;
-  }
-
-  .shop-goals__image {
-    padding: 4px;
-    background: var(--primary);
-  }
-
-  .shop-item-card::before {
-    background: none !important;
-  }
-
-  .shop-item-card__image {
-    background: var(--primary);
-  }
-
-  .shop-order__content {
-    background: var(--color-bg-2);
-  }
-
-  .shop-order__summary-content {
-    color: var(--color-bg) !important;
-  }
-
-  .shop-item-card {
-    background-color: var(--color-bg-2) !important;
-    color: var(--color-text) !important;
-    border-color: var(--color-border) !important;
-  }
-
-  .shop-item-card__stock-badge {
-    background: var(--color-red-400);
-  }
-
-  .btn-order {
-    color: var(--color-text) !important;
   }
 }
