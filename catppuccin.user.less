@@ -2,7 +2,7 @@
 @name Flavortown Catppuccin
 @namespace elijah629
 @homepageURL https://github.com/elijah629/flavortown-catppuccin
-@version 2025.12.22-4
+@version 2025.12.23-1
 @updateURL https://github.com/elijah629/flavortown-catppuccin/raw/main/catppuccin.user.less
 @description Soothing pastel theme for hackclub/flavortown
 @author elijah629
@@ -571,22 +571,28 @@
       background-color: @surface2;
     }
 
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
+    * {
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
 
-  ::-webkit-scrollbar-track {
-    background: var(--ctp-mantle);
-  }
+    &::-webkit-scrollbar-track {
+      background: @mantle;
+    }
 
-  ::-webkit-scrollbar-thumb {
-     background: var(--ctp-surface2);
-     border-radius: 4px;
-   }
+    &::-webkit-scrollbar-thumb {
+       background: @surface2;
+       border-radius: 4px;
+     }
 
-   ::-webkit-scrollbar-thumb:hover {
-      background: var(--ctp-overlay0);
+    &::-webkit-scrollbar-thumb:hover {
+       background: @overlay0;
+    }
+
+      @supports(-moz-appearance: none) {
+        scrollbar-color: @surface2 transparent !important;
+      }
     }
 
     .balance-history__table {
