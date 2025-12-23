@@ -120,6 +120,11 @@
       }
     });
 
+    .input {
+      --input-focus-ring: @accent;
+      --input-subtitle-color: @base;
+    }
+
     p .muted,
     .text-muted,
     [class*="muted"] {
@@ -223,7 +228,8 @@
 
     .dropdown__menu,
     .dropdown__label,
-    .dropdown__button {
+    .dropdown__button,
+    .dropdown__item {
       color: @text !important;
       background: @surface1 !important;
     }
@@ -415,7 +421,7 @@
 
     .shop .shop__nav .shop__searchbar {
       .input__icon {
-        background-color: var(--input-bg);
+        background-color: mix(@surface0, @crust, 88%);
 
         & > svg > g > path {
           fill: @text !important;
@@ -423,6 +429,7 @@
       }
 
       .input__field {
+        color: @text;
         border: none !important;
       }
     }
