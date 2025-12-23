@@ -35,6 +35,8 @@
     --primary-foreground: @base;
 
     --color-text: @text;
+    --color-text-header: @text;
+    --color-text-body: @text;
     --color-text-muted: @subtext1;
 
     --color-mantle: @mantle;
@@ -45,10 +47,6 @@
 
     --color-border: @overlay0;
     --color-border-strong: @overlay2;
-
-    --input-bg: mix(@surface0, @crust, 88%);
-    --input-bd: @overlay0;
-    --input-bd-focus: @accent;
 
     @shades: {
       300: 100%;
@@ -140,6 +138,12 @@
       background: var(--color-mantle) !important;
       color: var(--color-text) !important;
       border-color: var(--color-border) !important;
+    }
+
+    .input {
+      --input-bg: mix(@surface0, @crust, 88%);
+    	--input-focus-ring: @accent;
+	    --input-subtitle-color: @base;
     }
 
     input,
@@ -238,6 +242,32 @@
     .sidebar__nav-link--active .sidebar__nav-icon-wrapper, .sidebar__nav-link--active::before {
       background-color: mix(@accent, black, 80%);
     }
+
+    .sidebar__user-card {
+      background-color: @surface0;
+    }
+
+    .sidebar__user-actions,
+    .sidebar__user-settings-icon {
+      color: @text;
+      fill: @text;
+    }
+
+    .sidebar__user-logout-icon {
+      color: @red;
+    }
+
+    .sidebar__user-avatar {
+      background-color: @surface2;
+    }
+
+    .sidebar__user-name {
+      background: @surface2;
+    }
+
+    .sidebar__user-avatar-hat, .sidebar__user-avatar-hat-bg {
+      display: none;
+    }
   }
 }
 
@@ -303,6 +333,14 @@
     color: var(--ctp-overlay2) !important;
   }
 
+  .project-card__banner-frame {
+    background: none;
+  }
+
+  .project-card .project-card__stats > h5, .project-card__stats-icon > path {
+    color: var(--color-text) !important;
+  }
+
   .projects-board__create-card::before {
     background: none !important;
   }
@@ -341,6 +379,10 @@
     background: var(--color-red-300);
   }
 
+  .shop .shop__nav .shop__searchbar .input__icon {
+    background-color: var(--input-icon-bg) ;
+  }
+
   .shop-goals__image {
     padding: 4px;
     background: var(--primary);
@@ -366,6 +408,10 @@
     background-color: var(--color-bg-2) !important;
     color: var(--color-text) !important;
     border-color: var(--color-border) !important;
+  }
+
+  .shop-item-card__stock-badge {
+    background: var(--color-red-400);
   }
 
   .btn-order {
