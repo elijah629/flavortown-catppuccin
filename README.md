@@ -4,8 +4,6 @@
 	<img src="/assets/banner.webp"/>
 </p>
 
-<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px" />
-
 ## Usage
 
 To install, you will need the Stylus browser extension installed. Install
