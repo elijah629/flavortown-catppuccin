@@ -2,7 +2,7 @@
 @name Flavortown Catppuccin
 @namespace elijah629
 @homepageURL https://github.com/elijah629/flavortown-catppuccin
-@version 2025.12.22-3
+@version 2025.12.22-4
 @updateURL https://github.com/elijah629/flavortown-catppuccin/raw/main/catppuccin.user.less
 @description Soothing pastel theme for hackclub/flavortown
 @author elijah629
@@ -330,6 +330,14 @@
       color: var(--color-text) !important;
     }
 
+    .post__track {
+      align-items: center;
+    }
+
+    .post--devlog .post__viewport {
+      background: transparent;
+    }
+
     .project-card__banner-frame--placeholder {
       background: @surface2 !important;
       border-color: @overlay0 !important;
@@ -486,6 +494,81 @@
 
     .achievements__card {
       background: @surface1;
+    }
+
+    /* Show secret achievements */
+
+    .secret-achievement(@index, @name, @description, @cookieValue: -1) {
+      .achievements__card:nth-last-child(@{index}):not(.achievements__card--earned) {
+        .achievements__name, .achievements__description {
+          opacity: 1.0;
+          font-style: normal;
+          visibility: hidden;
+          width: 100%;
+
+          &::before {
+            visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .achievements__description {
+          height: 70px;
+        }
+
+        .achievements__reward--secret when not (@cookieValue = -1) {
+          color: transparent !important;
+          font-size: 0px;
+
+          &::before {
+            content: "+@{cookieValue} 🍪";
+          font-size: 0.9rem;
+            color: @base !important;
+          }
+        }
+
+        .achievements__name::before {
+          content: @name;
+        }
+
+        .achievements__description::before {
+          content: "REVEALED BY FLAVORTOWN CATPPUCCIN! @{description}";
+        }
+      }
+    }
+
+    .secret-achievement(4, "Cookbook Author", "10 recipes documented - publish that cookbook!", 15);
+    .secret-achievement(3, "Scrapbook usage?!", "Used scrapbook in a devlog");
+    .secret-achievement(2, "Cooking", "Cooked so hard you ended up making a fire project that made our staff very happy!", 5);
+
+    .user-profile__heading {
+      color: @text !important;
+    }
+
+    .user-profile__stat h4 {
+      color: @accent !important;
+    }
+
+    .user-profile__achievement-title {
+      color: @text !important;
+    }
+
+    .user-profile__achievement-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .user-profile__project-card:hover {
+      color: @accent !important;
+    }
+
+    .user-profile__project-card:hover {
+      background-color: @surface2;
     }
   }
 }
