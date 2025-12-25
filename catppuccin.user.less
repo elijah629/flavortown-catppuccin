@@ -2,7 +2,7 @@
 @name Flavortown Catppuccin
 @namespace elijah629
 @homepageURL https://github.com/elijah629/flavortown-catppuccin
-@version 2025.12.23-8
+@version 2025.12.23-grinch-1
 @updateURL https://github.com/elijah629/flavortown-catppuccin/raw/main/catppuccin.user.less
 @description Soothing pastel theme for hackclub/flavortown
 @author elijah629
@@ -14,9 +14,10 @@
 @var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 @var checkbox showSecretAchievements "Show secret achievements" 1
 @var checkbox fontReset "Use system font" 0
+@var checkbox noSnow "Grinch Mode" 0
 ==/UserStyle== */
 
-@version: "2025.12.23-8";
+@version: "2025.12.23-grinch-1";
 
 @import "https://userstyles.catppuccin.com/lib/lib.less";
 
@@ -54,6 +55,14 @@
 
     --color-border: @overlay0;
     --color-border-strong: @overlay2;
+
+    .no-snow() when (@noSnow = 1) {
+      .falling-snow-container, .snow-pile {
+        display: none;
+      }
+    }
+
+    .no-snow();
 
     .generate-color(@name, @color, @shades: {
       300: 100%;
