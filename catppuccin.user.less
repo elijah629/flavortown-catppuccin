@@ -2,7 +2,7 @@
 @name Flavortown Catppuccin
 @namespace elijah629
 @homepageURL https://github.com/elijah629/flavortown-catppuccin
-@version 2025.12.23-grinch-1
+@version 2025.12.23-2
 @updateURL https://github.com/elijah629/flavortown-catppuccin/raw/main/catppuccin.user.less
 @description Soothing pastel theme for hackclub/flavortown
 @author elijah629
@@ -15,9 +15,10 @@
 @var checkbox showSecretAchievements "Show secret achievements" 1
 @var checkbox fontReset "Use system font" 0
 @var checkbox noSnow "Grinch Mode" 0
+@var checkbox blackBar "Block address with a black bar" 0
 ==/UserStyle== */
 
-@version: "2025.12.23-grinch-1";
+@version: "2025.12.28-1";
 
 @import "https://userstyles.catppuccin.com/lib/lib.less";
 
@@ -57,7 +58,8 @@
     --color-border-strong: @overlay2;
 
     .no-snow() when (@noSnow = 1) {
-      .falling-snow-container, .snow-pile {
+      .falling-snow-container,
+      .snow-pile {
         display: none;
       }
     }
@@ -144,7 +146,7 @@
       }
     }
 
-    each(p li label small span h1 h2 h3 h4 h5 h6, {
+    each(p li label small span h1 h2 h3 h4 h5 h6 summary, {
       .input-group @{value},
       .input       @{value},
       .projects-new__field @{value} {
@@ -153,6 +155,10 @@
 
       :not(a) > @{value} {
         color: @text;
+
+        &:hover {
+          color: @text;
+        }
       }
     });
 
@@ -327,26 +333,45 @@
       background: @surface2;
     }
 
+    .my-orders__status--fulfilled {
+      color: @base;
+    }
+
+    .black-bar() when (@blackBar = 1) {
+      .my-orders__blurred-when-inactive {
+        filter: blur(0);
+        color: transparent;
+        background-color: black;
+        user-select: none;
+        transition: all 0.5s ease-in-out;
+      }
+      .my-orders__blurred-when-inactive:hover {
+        color: @text;
+        background-color: transparent;
+        opacity: 1;
+        pointer-events: auto;
+        user-select: auto;
+      }
+    }
+
+    .black-bar();
+
     .sidebar__user-avatar-hat,
     .sidebar__user-avatar-hat-bg {
       display: none;
     }
 
-    .kitchen-setup,
-    .kitchen-help {
+    .kitchen-index > div[class*="kitchen-"] {
       background: transparent !important;
-    }
 
-    .kitchen-setup::before,
-    .kitchen-help::before {
-      background: @surface1 !important;
-    }
-
-    .kitchen-help {
-      .state-card {
-        background-color: var(--color-bg-2) !important;
-        border-color: var(--color-border) !important;
+      &::before {
+        background: @surface1 !important;
       }
+    }
+
+    .state-card--neutral {
+      background-color: var(--color-bg-2) !important;
+      border-color: var(--color-border) !important;
 
       .state-card__title,
       .state-card__description,
@@ -464,6 +489,11 @@
       .post__attachment {
         gap: 0;
         background: transparent;
+      }
+
+      .post__action-btn--danger {
+        background: @red;
+        color: @base;
       }
     }
 
