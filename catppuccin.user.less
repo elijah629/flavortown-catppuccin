@@ -2,7 +2,7 @@
 @name Flavortown Catppuccin
 @namespace elijah629
 @homepageURL https://github.com/elijah629/flavortown-catppuccin
-@version 2025.12.28-1
+@version 2025.12.29
 @updateURL https://github.com/elijah629/flavortown-catppuccin/raw/main/catppuccin.user.less
 @description Soothing pastel theme for hackclub/flavortown
 @author elijah629
@@ -18,7 +18,7 @@
 @var checkbox blackBar "Block address with a black bar" 0
 ==/UserStyle== */
 
-@version: "2025.12.28-1";
+@version: "2025.12.29";
 
 @import "https://userstyles.catppuccin.com/lib/lib.less";
 
@@ -366,6 +366,14 @@
 
       &::before {
         background: @surface1 !important;
+      }
+    }
+
+    .announcement {
+      background: @surface1 !important;
+
+      .announcement__content {
+        border: 5px dashed var(--color-border);
       }
     }
 
