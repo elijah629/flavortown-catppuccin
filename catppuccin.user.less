@@ -2,7 +2,7 @@
 @name Flavortown Catppuccin
 @namespace elijah629
 @homepageURL https://github.com/elijah629/flavortown-catppuccin
-@version 2025.12.29
+@version 2026.01.08
 @updateURL https://github.com/elijah629/flavortown-catppuccin/raw/main/catppuccin.user.less
 @description Soothing pastel theme for hackclub/flavortown
 @author elijah629
@@ -18,7 +18,7 @@
 @var checkbox blackBar "Block address with a black bar" 0
 ==/UserStyle== */
 
-@version: "2025.12.29";
+@version: "2026.01.08";
 
 @import "https://userstyles.catppuccin.com/lib/lib.less";
 
@@ -149,7 +149,8 @@
     each(p li label small span h1 h2 h3 h4 h5 h6 summary, {
       .input-group @{value},
       .input       @{value},
-      .projects-new__field @{value} {
+      .projects-new__field @{value},
+      .projects-new__time-preview @{value} {
         color: @base !important;
       }
 
@@ -338,19 +339,23 @@
     }
 
     .black-bar() when (@blackBar = 1) {
-      .my-orders__blurred-when-inactive {
-        filter: blur(0);
-        color: transparent;
-        background-color: black;
-        user-select: none;
+      .my-orders__blurred-when-inactive,
+      .shop-order__address-details .dropdown__char-span,
+      .shop-order__address-details .dropdown__item
+      {
+        filter: blur(0) !important;
+        color: transparent !important;
+        background-color: black !important;
+        user-select: none !important;
         transition: all 0.5s ease-in-out;
-      }
-      .my-orders__blurred-when-inactive:hover {
-        color: @text;
-        background-color: transparent;
-        opacity: 1;
-        pointer-events: auto;
-        user-select: auto;
+
+        &:hover {
+          color: @text;
+          background-color: transparent;
+          opacity: 1;
+          pointer-events: auto;
+          user-select: auto;
+        }
       }
     }
 
@@ -533,6 +538,7 @@
 
       .input__field {
         color: @text;
+        background-color: mix(@surface0, @crust, 88%);
         border: none !important;
       }
     }
